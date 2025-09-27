@@ -31,21 +31,13 @@ jobs:
       # Upload `variables.json` to Composer bucket
       - name: Upload Variables JSON to GCS
         run: |
-<<<<<<< HEAD
           gsutil cp variables/dev/variables.json gs://asia-south1-airflow-dev-1348c0b0-bucket/data/dev/variables.json
-=======
-          gsutil cp variables/dev/variables.json gs://us-central1-airflow-dev-e4d8e584-bucket/data/dev/variables.json
->>>>>>> 9e6b239 (firstdev)
 
       # Import Variables into Airflow-DEV
       - name: Import Variables into Airflow-DEV
         run: |
           gcloud composer environments run airflow-dev \
-<<<<<<< HEAD
             --location asia-south1 \
-=======
-            --location us-central1 \
->>>>>>> 9e6b239 (firstdev)
             variables import -- /home/airflow/gcs/data/dev/variables.json
 
       # Sync Spark job to GCS
@@ -85,21 +77,13 @@ jobs:
       # Upload `variables.json` to Composer bucket
       - name: Upload Variables JSON to GCS
         run: |
-<<<<<<< HEAD
           gsutil cp variables/prod/variables.json gs://asia-south1-airflow-prod-bca875d6-bucket/data/prod/variables.json
-=======
-          gsutil cp variables/prod/variables.json gs://us-central1-airflow-prod-46040f60-bucket/data/prod/variables.json
->>>>>>> 9e6b239 (firstdev)
 
       # Import Variables into Airflow-PROD
       - name: Import Variables into Airflow-PROD
         run: |
           gcloud composer environments run airflow-prod \
-<<<<<<< HEAD
             --location asia-south1 \
-=======
-            --location us-central1 \
->>>>>>> 9e6b239 (firstdev)
             variables import -- /home/airflow/gcs/data/prod/variables.json
 
       # Sync Spark job to GCS
